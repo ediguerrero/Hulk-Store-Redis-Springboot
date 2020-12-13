@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entityes.Product;
 import com.example.demo.utils.GenericResponse;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.repository.StoreRepository;
 
@@ -22,13 +23,15 @@ public class StoreREST {
     @GetMapping("/Products")
     public GenericResponse<Map<String, Product>> findAllProducts() {
         try {
+
             return new GenericResponse<>(storeRepository.finAllProducts());
         } catch (Exception e) {
             return new GenericResponse<>(Response.Status.NO_CONTENT, e.getMessage());
         }
     }
     @GetMapping("/formulario")
-    public String getformulario(){
+    public String getformulario(Model model) throws Exception {
+      model.addAttribute("products", storeRepository.finAllProducts());
         return "formulario1";
 
     }
