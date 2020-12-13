@@ -57,8 +57,8 @@ public class StoreRepository implements RedisRepository{
     }
 
     @Override
-    public Product updateProduct(Product product) {
-        return null;
+    public void updateProduct(Product product)throws Exception {
+         hashOperations.put(KEY, product.getName(), product);
     }
 
     @Override

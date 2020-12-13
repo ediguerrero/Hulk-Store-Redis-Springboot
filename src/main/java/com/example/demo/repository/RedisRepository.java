@@ -13,7 +13,7 @@ public interface RedisRepository {
     String deleteUserByEmail(String email);
     String saveProduct(Product product) throws Exception;
     Product findProductByName(String name) throws Exception;
-    Product updateProduct(Product product);
+    void updateProduct(Product product) throws Exception;
     void deleteProductByName(String name) throws Exception;
 
 }

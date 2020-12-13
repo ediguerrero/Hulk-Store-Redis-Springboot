@@ -15,20 +15,12 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public int getCantidad() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setCantidad(int cantidad) {
-        this.amount = cantidad;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public double getPrice() {
@@ -37,5 +29,13 @@ public class Product implements Serializable {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
