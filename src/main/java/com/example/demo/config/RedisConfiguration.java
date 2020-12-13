@@ -1,6 +1,7 @@
-package config;
+package com.example.demo.config;
 
-import entityes.User;
+import com.example.demo.entityes.Product;
+import com.example.demo.entityes.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
@@ -14,8 +15,15 @@ public class RedisConfiguration {
 	JedisConnectionFactory jedisConnectionFactory() { return new JedisConnectionFactory(); }
 
 	@Bean
-	RedisTemplate<String, User> redisTemplate(){
+	RedisTemplate<String, User> redisTemplateUser(){
 		final RedisTemplate<String, User> redis=new RedisTemplate<>();
+		redis.setConnectionFactory(jedisConnectionFactory());
+
+		return redis;
+	}
+	@Bean
+	RedisTemplate<String, Product> redisTemplateProduct(){
+		final RedisTemplate<String, Product> redis=new RedisTemplate<>();
 		redis.setConnectionFactory(jedisConnectionFactory());
 
 		return redis;

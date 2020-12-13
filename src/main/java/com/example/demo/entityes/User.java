@@ -1,4 +1,4 @@
-package entityes;
+package com.example.demo.entityes;
 
 import java.io.Serializable;
 import java.util.List;
