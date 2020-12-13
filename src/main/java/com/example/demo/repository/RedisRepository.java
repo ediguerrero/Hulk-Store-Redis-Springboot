@@ -7,13 +7,13 @@ import java.util.Map;
 
 public interface RedisRepository {
     Map<String, User> finAllUsers();
-    Map<String, Product> finAllProducts();
+    Map<String, Product> finAllProducts() throws Exception;
     User findByEmail(String email);
     String saveUser(User user);
     String deleteUserByEmail(String email);
-    String saveProduct(Product product);
-    Product findProductByName(String name);
+    String saveProduct(Product product) throws Exception;
+    Product findProductByName(String name) throws Exception;
     Product updateProduct(Product product);
-    void deleteProductByName(String name);
+    void deleteProductByName(String name) throws Exception;
 
 }

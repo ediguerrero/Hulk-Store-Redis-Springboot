@@ -25,7 +25,7 @@ public class StoreRepository implements RedisRepository{
     }
 
     @Override
-    public Map<String, Product> finAllProducts() {
+    public Map<String, Product> finAllProducts() throws Exception{
         return 	hashOperations.entries(KEY);
     }
 
@@ -45,14 +45,14 @@ public class StoreRepository implements RedisRepository{
     }
 
     @Override
-    public String saveProduct(Product product) {
+    public String saveProduct(Product product) throws Exception{
         String name= product.getName();
         hashOperations.put(KEY, name, product);
         return name;
     }
 
     @Override
-    public Product findProductByName(String name) {
+    public Product findProductByName(String name) throws Exception {
         return (Product) hashOperations.get(KEY, name);
     }
 
@@ -62,7 +62,7 @@ public class StoreRepository implements RedisRepository{
     }
 
     @Override
-    public void deleteProductByName(String name) {
+    public void deleteProductByName(String name)throws Exception {
         hashOperations.delete(KEY, name);
     }
 }
