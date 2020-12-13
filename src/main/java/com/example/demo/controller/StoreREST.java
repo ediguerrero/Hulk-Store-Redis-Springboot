@@ -27,6 +27,12 @@ public class StoreREST {
             return new GenericResponse<>(Response.Status.NO_CONTENT, e.getMessage());
         }
     }
+    @GetMapping("/formulario")
+    public String getformulario(){
+        return "formulario1";
+
+    }
+
 
     @GetMapping("/Product/{name}")
     public GenericResponse<Product> findProductByName(@PathVariable String name) {
